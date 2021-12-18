@@ -28,10 +28,10 @@ class Workspace(object):
         utils.set_seed_everywhere(cfg.seed)
         self.checkPoint_freq = cfg.save_frequency
 
-        self.ppo = cfg.ppo
-        if self.ppo:
-            self.agent = hydra.utils.instantiate(cfg.agent_ppo)
-            self.agent.learn(cfg.num_train_steps, self.logger)
+        # self.ppo = cfg.ppo
+        # if self.ppo:
+        #     self.agent = hydra.utils.instantiate(cfg.agent_ppo)
+        #     self.agent.learn(cfg.num_train_steps, self.logger)
 
         # env set up
         channel = EngineConfigurationChannel()
@@ -199,7 +199,7 @@ class Workspace(object):
                     self.agent.save_checkpoint(self_play=True, window=win)
 
                 if self.step % self.swap_step == 0:
-                    win = self.window_select()
+                    win = int(self.window_select())
                     self.agent_adversary.selfplay_load_agent(self.window_map[win])
 
                 if self.step % self.team_change == 0:
