@@ -28,10 +28,10 @@ class Workspace(object):
         utils.set_seed_everywhere(cfg.seed)
         self.checkPoint_freq = cfg.save_frequency
 
-        # self.ppo = cfg.ppo
-        # if self.ppo:
-        #     self.agent = hydra.utils.instantiate(cfg.agent_ppo)
-        #     self.agent.learn(cfg.num_train_steps, self.logger)
+        self.ppo = cfg.ppo
+        if self.ppo:
+            self.agent = hydra.utils.instantiate(cfg.agent_ppo)
+            self.agent.learn(cfg.num_train_steps, self.logger)
 
         # env set up
         channel = EngineConfigurationChannel()
