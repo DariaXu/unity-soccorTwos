@@ -17,11 +17,11 @@ You can install or conda enviroment using the conda_env.yaml file
 All models are implemented using Pytorch.
 
 ## To run
-To train the PPO and DQN model:
+To train PPO and DQN model:
 ```
 python dqn_ppo/train.py
 ```
-To train the MADDPG model:
+To train MADDPG model:
 ```
 python maddpg/train.py
 ```
